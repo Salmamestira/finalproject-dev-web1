@@ -1,0 +1,102 @@
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panier | YourBeauty</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <img src="logo.jpg" alt="YourBeauty">
+                <span>YourBeauty</span>
+            </div>
+            <div class="cart">
+                <a href="shop.html">
+                    <button id="cart-button">
+                        <span>Panier (0)</span>
+                    </button>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <h1>Votre Panier</h1>
+
+    <!-- Liste des produits dans le panier -->
+    <section id="cart-list">
+        <!-- Les produits du panier seront ajoutés ici -->
+    </section>
+
+    <div id="total">
+        <h3>Total : <span id="total-price">0dh</span></h3>
+    </div>
+
+
+
+    <div id="checkout">
+        <button id="checkout-button">Passer la commande</button>
+    </div>
+   
+    
+
+    <script src="data.js"></script>
+    <script>
+    // Fonction pour afficher les produits du panier
+    function displayCart() {
+        const cartList = document.getElementById('cart-list');
+        const totalPriceElement = document.getElementById('total-price');
+        cartList.innerHTML = '';  // Vider la liste existante
+
+        let totalPrice = 0;
+
+        cart.forEach(item => {
+            const cartItemDiv = document.createElement('div');
+            cartItemDiv.classList.add('cart-item');
+            cartItemDiv.innerHTML = `
+                <div class="cart-item-details">
+                    <h3>${item.name}</h3>
+                    <p class="price">${item.price}dh</p>
+                </div>
+                <button class="remove-button" onclick="removeFromCart(${item.id})">Supprimer</button>
+                
+
+            `;
+            cartList.appendChild(cartItemDiv);
+
+            // Calculer le total
+            totalPrice += item.price * item.quantity;
+        });
+
+        // Afficher le total
+        totalPriceElement.innerHTML = `${totalPrice}dh`;
+    }
+
+    // Fonction pour supprimer un produit du panier
+    function removeFromCart(id) {
+        cart = cart.filter(item => item.id !== id);  // Filtrer pour supprimer l'élément
+        localStorage.setItem('cart', JSON.stringify(cart));  // Mettre à jour le localStorage
+        displayCart();  // Actualiser l'affichage
+        updateCart();  // Actualiser le nombre dans le bouton panier
+    }
+
+    // Charger le panier au démarrage
+    document.addEventListener('DOMContentLoaded', () => {
+        displayCart();  // Afficher les produits du panier
+        updateCart();   // Mettre à jour le bouton du panier
+    });
+</script>
+     
+</body>
+</html> 
+
+
+
+
+
+
+

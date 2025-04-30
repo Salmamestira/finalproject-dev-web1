@@ -1,0 +1,95 @@
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Votre Shop | YourBeauty</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Barre de navigation -->
+  <header>
+    <div class="navbar">
+      <div class="logo">
+        <img src="logo.jpg" alt="YourBeauty">
+        <span>YourBeauty</span>
+      </div>
+      <div class="filters">
+        <select id="category-filter">
+          <option value="all">Tous les produits</option>
+          <option value="pantalons-homme">Pantalons Homme</option>
+          <option value="pantalons-femme">Pantalons Femme</option>
+          <option value="chemises-homme">Chemises Homme</option>
+          <option value="chemises-femme">Chemises Femme</option>
+          <option value="chaussures-homme">Chaussures Homme</option>
+          <option value="chaussures-femme">Chaussures Femme</option>
+        </select>
+        <select id="price-filter">
+          <option value="all">Tous les prix</option>
+          <option value="low">Moins de 100 dh</option>
+          <option value="medium">100 dh–200 dh</option>
+          <option value="mid-high">200 dh–300 dh</option>
+          <option value="high">Plus de 300 dh</option>
+        </select>
+      </div>
+      <div class="cart">
+        <a href="panier.html">
+          <button id="cart-button">Panier (0)</button>
+
+        </a>
+
+
+        
+
+      </div>
+    </div>
+  </header>
+
+  
+
+  <!-- Grille des produits -->
+
+  <section id="product-list" class="product-list "></section>
+
+
+  <!-- Modale de détails -->
+  <div id="product-modal" class="modal hidden">
+    <div class="modal-content">
+      <span class="modal-close">&times;</span>
+      <img id="modal-img" src="" alt="" class="detail-img">
+      <h2 id="modal-name"></h2>
+      <p id="modal-full-desc"></p>
+      <p><strong>Tailles disponibles : </strong><span id="modal-sizes"></span></p>
+      <p class="price"><strong>Prix :</strong> <span id="modal-price"></span> dh</p>
+      <button id="modal-add">Ajouter au panier</button>
+      
+
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+
+
+
+  
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
