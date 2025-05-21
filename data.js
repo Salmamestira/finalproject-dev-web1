@@ -284,7 +284,7 @@ function openModal(product) {
     document.getElementById("modal-name").textContent = product.name;
     document.getElementById("modal-full-desc").textContent = product.fullDescription;
     document.getElementById("modal-sizes").textContent = product.sizes.join(", ");
-    document.getElementById("modal-price").textContent = product.price + " dh";
+    document.getElementById("modal-price").textContent = product.price ;
   
     // Bouton d’ajout au panier
     document.getElementById("modal-add").onclick = () => {
