@@ -110,6 +110,16 @@ window.products = [
 
 ];
 
+const products = (() => {
+  const local = localStorage.getItem('yourbeauty_products');
+  try {
+    return local ? JSON.parse(local) : window.products;
+  } catch {
+    return window.products;
+  }
+})();
+
+
 
 
 
