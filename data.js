@@ -203,12 +203,6 @@ function addToCart(id) {
     }   
 }
 
-// Fonction pour mettre à jour le bouton du panier
-function updateCart() {
-    const cartButton = document.getElementById('cart-button');
-    const cartCount = cart.reduce((acc, item) => acc + item.quantity, 0);
-    cartButton.innerHTML = `Panier (${cartCount})`;
-}
 
 
 // Fonction pour mettre à jour le nombre d'articles dans le panier
