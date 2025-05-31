@@ -187,27 +187,20 @@ let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 // Fonction pour ajouter un produit au panier
 function addToCart(id) {
-    const product = products.find(product => product.id === id);
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-    // Vérifier si le produit est déjà dans le panier
-    const existingProduct = cart.find(item => item.id === product.id);
+    const product = products.find(p => p.id === id);
 
-    if (existingProduct) {
-        // Si le produit est déjà dans le panier, on augmente la quantité
-        existingProduct.quantity++;
-    } else {
-        // Sinon, on ajoute le produit au panier avec une quantité de 1
+    // Vérifie si le produit est déjà dans le panier
+    const alreadyInCart = cart.some(item => item.id === id);
+
+    if (!alreadyInCart) {
+        // Ajoute le produit avec quantité fixe de 1
         cart.push({ ...product, quantity: 1 });
-    }
-
-    // Mettre à jour le panier dans le localStorage
-    localStorage.setItem('cart', JSON.stringify(cart));
-
-    // Mettre à jour l'affichage du nombre d'articles dans le bouton panier
-    updateCart();
-    
-    // Mettre à jour l'affichage du panier (incluant le total)
-    displayCart();
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCart(); 
+        displayCart();
+    }   
 }
 
 // Fonction pour mettre à jour le bouton du panier
